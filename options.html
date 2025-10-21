@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <title>TIS Settings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand-color: #E30613;
+      --brand-glow: rgba(227, 6, 19, 0.4);
+      --dark-bg: #111827;
+      --light-bg: #1F2937;
+      --text-light: #F9FAFB;
+      --text-dark: #9CA3AF;
+      --success: #10B981;
+      --error: #EF4444;
+      --font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    }
+    body {
+      font-family: var(--font-family);
+      margin: 0;
+      padding: 2rem;
+      background-color: var(--dark-bg);
+      color: var(--text-light);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+    .card {
+      width: 100%;
+      max-width: 600px;
+      background: var(--light-bg);
+      border: 1px solid var(--brand-color);
+      border-radius: 16px;
+      box-shadow: 0 0 20px var(--brand-glow);
+      overflow: hidden;
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 24px;
+      background-color: #161e2a;
+      border-bottom: 1px solid var(--brand-color);
+    }
+    .card-header svg {
+      border-radius: 8px;
+    }
+    .card-header h1 {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-light);
+    }
+    .card-header p {
+      margin: 0;
+      font-size: 0.875rem;
+      color: var(--text-dark);
+    }
+    .card-body {
+      padding: 24px;
+    }
+    .row {
+      margin-bottom: 20px;
+    }
+    label {
+      font-weight: 500;
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.875rem;
+      color: var(--text-light);
+    }
+    input[type=text] {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px 14px;
+      border: 1px solid #374151;
+      border-radius: 8px;
+      background: var(--dark-bg);
+      color: var(--text-light);
+      font-family: var(--font-family);
+      font-size: 1rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    input[type=text]:focus {
+      outline: none;
+      border-color: var(--brand-color);
+      box-shadow: 0 0 0 3px var(--brand-glow);
+    }
+    .hint {
+      color: var(--text-dark);
+      font-size: 0.8rem;
+      margin: 6px 0 0 0;
+    }
+    .card-footer {
+      padding: 20px 24px;
+      background-color: #161e2a;
+      border-top: 1px solid var(--brand-color);
+    }
+    .actions {
+      display: flex;
+      gap: 12px;
+    }
+    button {
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-family: var(--font-family);
+      font-size: 0.9rem;
+      transition: transform 0.15s, opacity 0.15s;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+    button:active {
+      transform: scale(0.97);
+    }
+    .primary {
+      background: var(--brand-color);
+      color: #fff;
+    }
+    .secondary {
+      background: #374151;
+      color: var(--text-light);
+    }
+    #status {
+      margin-top: 16px;
+      margin-bottom: 0;
+      font-weight: 500;
+      min-height: 1.2em;
+    }
+    .ok { color: var(--success); }
+    .err { color: var(--error); }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <header class="card-header">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 120 120">
+        <rect width="100%" height="100%" fill="#1F2937"/>
+        <text x="50%" y="55%" font-size="42" font-weight="700" text-anchor="middle" fill="#E30613" font-family="Arial, Helvetica, sans-serif">TIS</text>
+      </svg>
+      <div class="header-text">
+        <h1>TIS & 247Express VIP PRO</h1>
+        <p>Cài đặt thông báo và định danh</p>
+      </div>
+    </header>
+
+    <main class="card-body">
+      <div class="row">
+        <label for="creator">Tên người tạo đơn</label>
+        <input id="creator" type="text" placeholder="Ví dụ: Truong IT" />
+      </div>
+
+      <div class="row">
+        <label for="webhook">Webhook URL</label>
+        <input id="webhook" type="text" placeholder="https://discord.com/api/webhooks/..." />
+      </div>
+    </main>
+
+    <footer class="card-footer">
+      <div class="actions">
+        <button id="save" class="primary">Lưu Cài Đặt</button>
+        <button id="test" class="secondary">Gửi Thử</button>
+      </div>
+      <p id="status" aria-live="polite"></p>
+    </footer>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>

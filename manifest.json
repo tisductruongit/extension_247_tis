@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "update_url": "https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/update.xml",
+  "name": "TIS and 247Express VIP PRO (SEND)",
+  "version": "1.7.0",
+  "description": "FROM: truongle.IT.TIS",
+  "icons": { "16": "icon.png", "48": "icon.png", "128": "icon.png" },
+  "permissions": ["storage"],
+  "options_ui": { "page": "options.html", "open_in_tab": true },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://247express.vn/khach-hang/*"
+      ],
+      "js": [
+        "lottie.min.js",
+        "autoPrintInsert.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [ "ICON.json" ],
+      "matches": [ "https://247express.vn/*" ]
+    }
+  ]
+}
